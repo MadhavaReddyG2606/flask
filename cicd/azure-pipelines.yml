@@ -2,7 +2,10 @@
 # File: azure-pipeline.yml
 
 name: cicd_ci
-
+resources:
+  webhooks:
+    - webhook: webhookbug
+      connection: webhookbug
 trigger:
   branches:
     include:
