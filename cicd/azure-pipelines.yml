@@ -1,8 +1,9 @@
 name: $(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
 resources:
   webhooks:
-    - webhook: webhookbug           ### Webhook alias
-      connection: webhookbug    ### Incoming webhook service connection
+    - webhook: webhookbug
+      connection: webhookbug
+
       
 trigger:
   batch: true
