@@ -1,10 +1,14 @@
+name: $(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
+
 trigger:
-  - main
-  - develop
-  
-pool: 
-  default
-  
+  batch: true
+  branches:
+    include:
+    - master
+    - develop
+
+pool: Default
+
 jobs:
   - job: PreWork
     steps:
@@ -14,3 +18,4 @@ jobs:
     pool: windows-latest
     steps:
     - script: "Do post-work using a different hosted image"
+  
