@@ -7,7 +7,8 @@ trigger:
     - master
     - develop
 
-pool: Default
+pool: 
+  name: windows-latest
 
 jobs:
   - job: PreWork
