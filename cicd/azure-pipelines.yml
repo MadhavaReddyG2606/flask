@@ -1,23 +1,15 @@
-trigger: 
+trigger:
   - main
-  - develop
-
-name: flaskwebapp_CICD
-resources:
-    webhooks:
-      - webhook: webhookbug
-        connection: webhookbug  
+  
 pool: 
-     vmImage: ubuntu-latest
+  vmImage: ubuntu-latest
   
 jobs:
-  - deployment: VMDeploy
-    displayName: Deploy to VM
-    environment: 
-     name: ContosoDeploy
-     resourceType: VirtualMachine
-    strategy:
-       runOnce:
-          deploy:   
-            steps:
-              - script: echo "Hello world"
+  - job: PreWork
+    steps:
+    - script: "Do pre-work"
+  
+  - job: PostWork
+    pool: windows-latest
+    steps:
+    - script: "Do post-work using a different hosted image"
