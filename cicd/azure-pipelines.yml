@@ -6,7 +6,6 @@ trigger:
     include:
     - master
     - develop
-
 pool:
   name: Azure Pipelines #test
   vmImage: ubuntu-latest 
