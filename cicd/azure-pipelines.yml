@@ -17,7 +17,7 @@ jobs:
     - script: "Do pre-work"
   
   - job: PostWork
-    pool: windows-latest
+    pool: ubuntu-latest
     steps:
     - script: "Do post-work using a different hosted image"
   
