@@ -7,9 +7,8 @@ trigger:
     - master
     - develop
 
-pool: 
-  vmImage: ubuntu-latest
-  #Test
+pool:
+  vmImage: ubuntu-latest # This is the default if you don't specify a pool or vmImage.
 
 jobs:
   - job: PreWork
