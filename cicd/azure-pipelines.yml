@@ -8,7 +8,7 @@ trigger:
     - develop
 
 pool:
-  name: Azure Pipelines
+  name: Azure Pipelines #test
   vmImage: ubuntu-latest 
 
 jobs:
