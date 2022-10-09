@@ -8,7 +8,7 @@ trigger:
     - develop
 
 pool: 
-  name: windows-latest
+  vmImage: ubuntu-latest
 
 jobs:
   - job: PreWork
