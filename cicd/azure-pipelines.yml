@@ -1,23 +1,27 @@
-trigger: 
-  - main
-  - develop
+# Repo: MySpace/TemplateRepo
+# File: azure-pipeline.yml
 
-name: flaskwebapp_CICD
+name: cicd_ci
 resources:
-    webhooks:
-      - webhook: webhookbug
-        connection: webhookbug  
-pool: 
-     vmImage: ubuntu-latest
-  
-jobs:
-  - deployment: VMDeploy
-    displayName: Deploy to VM
-    environment: 
-     name: ContosoDeploy
-     resourceType: VirtualMachine
-    strategy:
-       runOnce:
-          deploy:   
-            steps:
-              - script: echo "Hello world"
+  webhooks:
+    - webhook: webhookbug
+      connection: webhookbug
+trigger:
+  branches:
+    include:
+      - master
+      - develop
+
+stages:
+- stage: CI_Checks
+  jobs:
+  - job:
+    displayName: yamllint_checks
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+    - script: |
+        python -m pip install --upgrade pip
+        pip install yamllint
+        yamllint -d "{extends: relaxed, rules: {line-length: {max: 200}, new-line-at-end-of-file: disable, new-lines: disable}}" .
+      displayName: 'YAML Lint Checks'
