@@ -4,8 +4,8 @@
 name: cicd_ci
 resources:
   webhooks:
-    - webhook: webhookbug
-      connection: webhookbug
+    - webhook: webhookdevops
+      connection: webhookdevops
 trigger:
   branches:
     include:
