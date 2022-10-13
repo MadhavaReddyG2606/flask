@@ -2,21 +2,21 @@
 # File: azure-pipeline.yml 
 
 name: cicd_ci
-resources:
-  webhooks:
-    - webhook: webhookdevops
-      connection: webhookdevops
 trigger:
   branches:
     include:
       - master
       - develop
+resources:
+  webhooks:
+    - webhook: webhookdevops
+      connection: webhookdevops
 stages:
   - stage: Build and package
     jobs:
     - job: Build
       steps:
-        step: "webhookdevops"
+        step: "awebhookdevops"
 
 
 
