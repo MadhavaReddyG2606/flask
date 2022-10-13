@@ -1,25 +1,25 @@
 # Repo: MySpace/TemplateRepo
 # File: azure-pipeline.yml 
-
-name: cicd_ci
+#webhook :  https://developercommunity.visualstudio.com/t/cannot-use-generic-webhook-based-triggers-for-yaml/1135943
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+resources:
+  webhooks:
+    - webhook: webhooktrigger
+      connection: webhooknaqel
 trigger:
   branches:
     include:
       - master
       - develop
-resources:
-  webhooks:
-    - webhook: webhookdevops
-      connection: webhookdevops
+pool:
+  vmImage: ubuntu-latest
+
 stages:
-  - stage: Build and package
+  - stage:
     jobs:
-    - job: Build
+    - job:
       steps:
-        step:'echo "Hello1"'
-
-
-
-
-
-
+        - script: echo "Hello"
