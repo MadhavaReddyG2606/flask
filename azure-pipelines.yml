@@ -4,8 +4,8 @@
 # https://aka.ms/yaml
 resources:
   webhooks:
-    - webhook: webhookdevops
-      connection: webhookdevops
+    - webhook: webhooknaqel
+      connection: webhooknaqel
 trigger:
   branches:
     include:
